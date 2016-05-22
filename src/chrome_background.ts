@@ -36,4 +36,20 @@ loadDB(chrome.extension.getURL, (parsedDb) => {
           chrome.tabs.sendMessage(tab.id, genMessage('page','k'));
       }
   });
+
+  chrome.contextMenus.create({
+      "title": chrome.i18n.getMessage("ruby_jyutping_page"),
+      "parentId": root_id,
+      "onclick": (info, tab) => {
+          chrome.tabs.sendMessage(tab.id, genMessage('page','c'));
+      }
+  });
+
+  chrome.contextMenus.create({
+      "title": chrome.i18n.getMessage("ruby_vietnam_page"),
+      "parentId": root_id,
+      "onclick": (info, tab) => {
+          chrome.tabs.sendMessage(tab.id, genMessage('page', 'v'));
+      }
+  });
 });

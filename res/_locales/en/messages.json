@@ -14,5 +14,13 @@
     "ruby_korean_page": {
         "message": "Annotate the korean pronounce for Chinese Characters in this page",
         "description": "context menu - ruby korean page"
+    },
+    "ruby_jyutping_page": {
+        "message": "Annotate the jyutping for Chinese Characters in this page",
+        "description": "context menu - ruby jyutping page"
+    },
+    "ruby_vietnam_page": {
+        "message": "Annotate the vietnam for Chinese Characters in this page",
+        "description": "context menu - ruby vietnam page"
     }
 }

@@ -14,5 +14,13 @@
     "ruby_korean_page": {
         "message": "이 페이지의 한자에 발음 달기",
         "description": "context menu - ruby korean page"
+    },
+    "ruby_jyutping_page": {
+        "message": "이 페이지의 한자에 월병 달기",
+        "description": "context menu - ruby jyutping page"
+    },
+    "ruby_vietnam_page": {
+        "message": "이 페이지의 한자에 베트남 발음 달기",
+        "description": "context menu - ruby vietnam page"
     }
 }
