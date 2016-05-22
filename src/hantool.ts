@@ -1,30 +1,26 @@
 /// <reference path="../typings/main.d.ts" />
+/// <reference path="db.ts" />
 
 interface Finder { (ch: string): string };
 const ns = "http://github.com/perlmint/hantool";
-interface DBType { [key:string]:{ [key:string]:string } };
 interface AssetURLGetter { (path: string): string };
 interface Result { prevNode: Node, newNode: Node[] };
-var db : DBType, getAssetURL : AssetURLGetter;
-var loaded = false;
 
-function loadDB() {
+function loadDB(getAssetURL: AssetURLGetter, callback: {(db: DBType): void}) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = (et: ProgressEvent) => {
         if (xhr.readyState == XMLHttpRequest.DONE) {
             if (xhr.responseType == "json") {
-                db = <DBType>xhr.response;
+                callback(<DBType>xhr.response);
             }
             else {
-                db = JSON.parse(xhr.response);
+                callback(JSON.parse(xhr.response));
             }
-            loaded = true;
         }
     };
     xhr.open("GET", getAssetURL('/db.json'), true);
     xhr.send();
 }
-loadDB();
 
 function walk(node : Node, finder : Finder): Result[] {
     if (node.nodeType == Node.TEXT_NODE) {
@@ -100,7 +96,7 @@ function replaceWithRuby(node: Text, finder: Finder): Result {
     return { prevNode: node, newNode: items };
 }
 
-function findFromDB(ch: string, key: string): string {
+function findFromDB(ch: string, db: DBType, key: string): string {
     if (isHan(ch)) {
         var cc = ch.charCodeAt(0).toString(16).toUpperCase();
         if (db.hasOwnProperty(cc) && db[cc].hasOwnProperty(key)) {
@@ -110,6 +106,6 @@ function findFromDB(ch: string, key: string): string {
     return null;
 }
 
-function bindFinder(key: string): Finder {
-    return (n) => { return findFromDB(n, key); };
+function bindFinder(db: DBType, key: string): Finder {
+    return (n) => { return findFromDB(n, db, key); };
 }

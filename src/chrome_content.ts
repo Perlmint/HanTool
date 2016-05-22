@@ -1,10 +1,6 @@
 /// <reference path="../typings/main.d.ts" />
 /// <reference path="hantool.ts" />
 
-getAssetURL = function(path: string): string {
-    return chrome.extension.getURL(path);
-};
-
 chrome.runtime.onMessage.addListener((msg, sender, response) => {
     if (msg.exec != 'hantool_run') {
         return;
@@ -15,7 +11,7 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
     }
     else {
     }
-    var results = walk(target, bindFinder(msg.key));
+    var results = walk(target, bindFinder(msg.db, msg.key));
 
     for (var result of results) {
         var node = result.prevNode;
