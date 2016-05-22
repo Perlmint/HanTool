@@ -33,8 +33,9 @@ function walk(node : Node, finder : Finder): Result[] {
         if (node.nodeType == Node.ELEMENT_NODE &&
             node.attributes.getNamedItemNS(ns, "appended") != null) {
             // already ruby created. replace rt only
-            var new_pronounce = finder((<Text>node.firstChild).data);
-            (<Text>node.lastChild.firstChild).data = new_pronounce;
+            var element = <HTMLElement>node;
+            var new_pronounce = finder((<Text>element.getElementsByTagName('rb')[0].firstChild).data);
+            (<Text>element.getElementsByTagName('rt')[0].firstChild).data = new_pronounce;
             return;
         }
         var nodes = node.childNodes;
@@ -51,7 +52,9 @@ function makeRuby(char :string, pronounce: string): HTMLElement {
     var ruby = document.createElement("ruby");
     var attr = document.createAttributeNS(ns, "appended");
     ruby.attributes.setNamedItemNS(attr);
-    ruby.appendChild(document.createTextNode(char));
+    var rb = document.createElement("rb");
+    rb.appendChild(document.createTextNode(char));
+    ruby.appendChild(rb);
     var rt = document.createElement("rt");
     rt.appendChild(document.createTextNode(pronounce));
     ruby.appendChild(rt);
