@@ -7,6 +7,9 @@
         "message": "한자에 병음, 한국 발음을 달아주는 플러그인",
         "description": "Description in manifest"
     },
+    "no_ruby": {
+        "message": "표기 없음"
+    },
     "ruby_pinyin_page": {
         "message": "이 페이지의 한자에 병음 달기",
         "description": "context menu - ruby pinyin page"

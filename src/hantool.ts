@@ -61,6 +61,20 @@ function makeRuby(char :string, pronounce: string): HTMLElement {
     return ruby;
 }
 
+function removeRuby(target: Node) {
+    var rubys = (<HTMLElement>target).getElementsByTagName('ruby');
+    var items: { prev: Node, after: Node, parent: Node }[] = [];
+    for (var i = 0; i < rubys.length; i++) {
+        var ruby = rubys[i];
+        var ch = (<Text>ruby.getElementsByTagName('rb')[0].firstChild).data;
+        var pronounce = (<Text>ruby.getElementsByTagName('rt')[0].firstChild).data;
+        items.push({ prev: ruby, after: document.createTextNode(ch), parent: ruby.parentNode });
+    }
+    for (var item of items) {
+        item.parent.replaceChild(item.after, item.prev);
+    }
+}
+
 function isHan(ch: string): boolean {
     var c = ch.charCodeAt(0);
     return (c >= 0x4e00 && c <= 0x9fff) ||

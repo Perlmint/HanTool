@@ -7,6 +7,9 @@
         "message": "Annotate pinyin, korean, etc... for webpage",
         "description": "Description in manifest"
     },
+    "no_ruby": {
+        "message": "No Annotation"
+    },
     "ruby_pinyin_page": {
         "message": "Annotate the pinyin for Chinese Characters in this page",
         "description": "context menu - ruby pinyin page"

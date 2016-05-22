@@ -3,6 +3,9 @@
 
 chrome.runtime.onMessage.addListener((msg, sender, response) => {
     if (msg.exec != 'hantool_run') {
+        if (msg.exec == 'hantool_clear') {
+            removeRuby(document);
+        }
         return;
     }
     var target: Node;
@@ -11,6 +14,7 @@ chrome.runtime.onMessage.addListener((msg, sender, response) => {
     }
     else {
     }
+
     var results = walk(target, bindFinder(msg.db, msg.key));
 
     for (var result of results) {
