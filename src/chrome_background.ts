@@ -3,12 +3,12 @@
 const root_id = "ctxm_hantool_root";
 
 chrome.contextMenus.create({
-    "title": "HanTool",
+    "title": chrome.i18n.getMessage("plugin_name"),
     "id": root_id
 });
 
 chrome.contextMenus.create({
-    "title": "Ruby Pinyin",
+    "title": chrome.i18n.getMessage("ruby_pinyin_page"),
     "parentId": root_id,
     "onclick": (info, tab) => {
         chrome.tabs.sendMessage(tab.id, {
@@ -20,7 +20,7 @@ chrome.contextMenus.create({
 });
 
 chrome.contextMenus.create({
-    "title": "Ruby Korean",
+    "title": chrome.i18n.getMessage("ruby_korean_page"),
     "parentId": root_id,
     "onclick": (info, tab) => {
         chrome.tabs.sendMessage(tab.id, {

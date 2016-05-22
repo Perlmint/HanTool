@@ -3,7 +3,8 @@ var path = require('path');
 
 var copy_list = [
     'res/manifest.json',
-    'res/db.json'
+    'res/db.json',
+    'res/_locales/'
 ];
 var out_dir = 'out';
 
