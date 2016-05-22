@@ -1,0 +1,30 @@
+{
+  "name": "hantool",
+  "version": "1.0.0",
+  "description": "Han character tool",
+  "main": "hantool.js",
+  "scripts": {
+      "build": "npm run copy && tsc",
+      "debug": "npm run build && cp -R src out/src",
+      "trans": "node scripts/unihan.js",
+      "copy": "node scripts/copy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Perlmint/HanTool.git"
+  },
+  "keywords": [
+    "hanyu",
+    "hanja"
+  ],
+  "author": "perlmint",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Perlmint/HanTool/issues"
+  },
+  "homepage": "https://github.com/Perlmint/HanTool#readme",
+  "dependencies": {
+    "fs-extra": "^0.30.0",
+    "jsonfile": "^2.3.1"
+  }
+}

@@ -1,0 +1,11 @@
+# output files
+out
+res
+
+# node files
+node_modules
+npm-debug.log
+typings
+
+# editor files
+*~

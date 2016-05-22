@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "module": "AMD",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+        "sourceMap": true,
+        "outDir": "out",
+        "rootDir": "src"
+    },
+    "files": [
+        "src/hantool.ts",
+        "src/chrome_background.ts",
+        "src/chrome_content.ts"
+    ]
+}
