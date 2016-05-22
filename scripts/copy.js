@@ -4,7 +4,9 @@ var path = require('path');
 var copy_list = [
     'res/manifest.json',
     'res/db.json',
-    'res/_locales/'
+    'res/_locales/',
+    'res/icon-16.png',
+    'res/icon-128.png'
 ];
 var out_dir = 'out';
 
