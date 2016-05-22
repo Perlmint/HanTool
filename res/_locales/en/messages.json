@@ -1,0 +1,18 @@
+{
+    "plugin_name": {
+        "message": "HanTool",
+        "description": "Plugin name"
+    },
+    "description": {
+        "message": "Annotate pinyin, korean, etc... for webpage",
+        "description": "Description in manifest"
+    },
+    "ruby_pinyin_page": {
+        "message": "Annotate the pinyin for Chinese Characters in this page",
+        "description": "context menu - ruby pinyin page"
+    },
+    "ruby_korean_page": {
+        "message": "Annotate the korean pronounce for Chinese Characters in this page",
+        "description": "context menu - ruby korean page"
+    }
+}

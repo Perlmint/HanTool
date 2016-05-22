@@ -1,6 +1,6 @@
 # output files
 out
-res
+res/db.json
 
 # node files
 node_modules

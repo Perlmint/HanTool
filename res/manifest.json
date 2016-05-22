@@ -1,0 +1,28 @@
+{
+    "manifest_version": 2,
+
+    "name": "HanTool",
+    "description": "Annotate",
+    "version": "1.0",
+
+    "background": {
+        "scripts": [
+            "chrome_background.js"
+        ]
+    },
+    "content_scripts": [{
+        "matches": ["*://*/*"],
+        "js": [
+            "chrome_content.js",
+            "hantool.js"
+        ]
+    }],
+    "permissions": [
+        "activeTab",
+        "contextMenus"
+    ],
+    "web_accessible_resources": [
+        "db.json"
+    ],
+    "offline_enabled": true
+}
